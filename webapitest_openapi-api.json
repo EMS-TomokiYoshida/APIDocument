@@ -1,0 +1,457 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "WebApiTest_OpenApi API",
+    "description": "OpenAPI調査用のAPI仕様",
+    "version": "v1.2.3"
+  },
+  "paths": {
+    "/WebApiTest_OpenApi/v1/get-weather-forecast": {
+      "post": {
+        "tags": [
+          "WeatherForecast"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                },
+                "example": [
+                  {
+                    "date": "2025-07-01",
+                    "temperature-c": 21,
+                    "temperature-f": 69,
+                    "summary": "サンプル要約 1"
+                  },
+                  {
+                    "date": "2025-07-02",
+                    "temperature-c": 22,
+                    "temperature-f": 71,
+                    "summary": "サンプル要約 2"
+                  },
+                  {
+                    "date": "2025-07-03",
+                    "temperature-c": 23,
+                    "temperature-f": 73,
+                    "summary": "サンプル要約 3"
+                  }
+                ]
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                },
+                "example": [
+                  {
+                    "date": "2025-07-01",
+                    "temperature-c": 21,
+                    "temperature-f": 69,
+                    "summary": "サンプル要約 1"
+                  },
+                  {
+                    "date": "2025-07-02",
+                    "temperature-c": 22,
+                    "temperature-f": 71,
+                    "summary": "サンプル要約 2"
+                  },
+                  {
+                    "date": "2025-07-03",
+                    "temperature-c": 23,
+                    "temperature-f": 73,
+                    "summary": "サンプル要約 3"
+                  }
+                ]
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                },
+                "example": [
+                  {
+                    "date": "2025-07-01",
+                    "temperature-c": 21,
+                    "temperature-f": 69,
+                    "summary": "サンプル要約 1"
+                  },
+                  {
+                    "date": "2025-07-02",
+                    "temperature-c": 22,
+                    "temperature-f": 71,
+                    "summary": "サンプル要約 2"
+                  },
+                  {
+                    "date": "2025-07-03",
+                    "temperature-c": 23,
+                    "temperature-f": 73,
+                    "summary": "サンプル要約 3"
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "code": 50301,
+                  "type": "Information",
+                  "message": "not found weather forecast",
+                  "message-jpn": "天気予報が見つかりません。",
+                  "details": ""
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "code": 50301,
+                  "type": "Information",
+                  "message": "not found weather forecast",
+                  "message-jpn": "天気予報が見つかりません。",
+                  "details": ""
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "code": 50301,
+                  "type": "Information",
+                  "message": "not found weather forecast",
+                  "message-jpn": "天気予報が見つかりません。",
+                  "details": ""
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/WebApiTest_OpenApi/v1/get-member": {
+      "post": {
+        "tags": [
+          "WeatherForecast"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetMemberRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetMemberRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetMemberRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Member"
+                },
+                "example": {
+                  "id": 172359852,
+                  "shop-id": 123456,
+                  "name": "メンバーネーム",
+                  "email": "text@mail.com",
+                  "phone": "011-8888-8888",
+                  "created-at": "2025-06-30T05:59:28.3620879Z",
+                  "update-at": "2025-06-30T05:59:28.3620881Z",
+                  "deleted-at": null,
+                  "weather-forecasts": [
+                    {
+                      "date": "2025-06-30",
+                      "temperature-c": 20,
+                      "temperature-f": 67,
+                      "summary": "Sunny"
+                    }
+                  ],
+                  "description": "この会員はテスト用の会員です。"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Member"
+                },
+                "example": {
+                  "id": 172359852,
+                  "shop-id": 123456,
+                  "name": "メンバーネーム",
+                  "email": "text@mail.com",
+                  "phone": "011-8888-8888",
+                  "created-at": "2025-06-30T05:59:28.3620879Z",
+                  "update-at": "2025-06-30T05:59:28.3620881Z",
+                  "deleted-at": null,
+                  "weather-forecasts": [
+                    {
+                      "date": "2025-06-30",
+                      "temperature-c": 20,
+                      "temperature-f": 67,
+                      "summary": "Sunny"
+                    }
+                  ],
+                  "description": "この会員はテスト用の会員です。"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Member"
+                },
+                "example": {
+                  "id": 172359852,
+                  "shop-id": 123456,
+                  "name": "メンバーネーム",
+                  "email": "text@mail.com",
+                  "phone": "011-8888-8888",
+                  "created-at": "2025-06-30T05:59:28.3620879Z",
+                  "update-at": "2025-06-30T05:59:28.3620881Z",
+                  "deleted-at": null,
+                  "weather-forecasts": [
+                    {
+                      "date": "2025-06-30",
+                      "temperature-c": 20,
+                      "temperature-f": 67,
+                      "summary": "Sunny"
+                    }
+                  ],
+                  "description": "この会員はテスト用の会員です。"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "code": 50201,
+                  "type": "Information",
+                  "message": "not found member",
+                  "message-jpn": "会員が見つかりません。",
+                  "details": ""
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "code": 50201,
+                  "type": "Information",
+                  "message": "not found member",
+                  "message-jpn": "会員が見つかりません。",
+                  "details": ""
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "code": 50201,
+                  "type": "Information",
+                  "message": "not found member",
+                  "message-jpn": "会員が見つかりません。",
+                  "details": ""
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "コード",
+            "format": "int32",
+            "nullable": true,
+            "readOnly": true
+          },
+          "type": {
+            "type": "string",
+            "description": "タイプ(Error,Information)",
+            "nullable": true,
+            "readOnly": true
+          },
+          "message": {
+            "type": "string",
+            "description": "メッセージ(英語)",
+            "nullable": true,
+            "readOnly": true
+          },
+          "message-jpn": {
+            "type": "string",
+            "description": "メッセージ(日本語)",
+            "nullable": true,
+            "readOnly": true
+          },
+          "details": {
+            "type": "string",
+            "description": "詳細",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetMemberRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "shopId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "includeDeleted": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Member": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "会員ID",
+            "format": "int32",
+            "readOnly": true
+          },
+          "shop-id": {
+            "type": "integer",
+            "description": "ショップID",
+            "format": "int32",
+            "readOnly": true
+          },
+          "name": {
+            "type": "string",
+            "description": "会員名",
+            "nullable": true,
+            "readOnly": true
+          },
+          "email": {
+            "type": "string",
+            "description": "Eメール",
+            "nullable": true,
+            "readOnly": true
+          },
+          "phone": {
+            "type": "string",
+            "description": "電話番号",
+            "nullable": true,
+            "readOnly": true
+          },
+          "created-at": {
+            "type": "string",
+            "description": "登録日時",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "update-at": {
+            "type": "string",
+            "description": "更新日時",
+            "format": "date-time",
+            "nullable": true,
+            "readOnly": true
+          },
+          "deleted-at": {
+            "type": "string",
+            "description": "削除日時",
+            "format": "date-time",
+            "nullable": true,
+            "readOnly": true
+          },
+          "weather-forecasts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WeatherForecast"
+            },
+            "description": "天気予報",
+            "nullable": true,
+            "readOnly": true
+          },
+          "description": {
+            "type": "string",
+            "description": "説明",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WeatherForecast": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "日付",
+            "format": "date",
+            "readOnly": true
+          },
+          "temperature-c": {
+            "type": "integer",
+            "description": "温度C",
+            "format": "int32",
+            "readOnly": true
+          },
+          "temperature-f": {
+            "type": "integer",
+            "description": "温度F",
+            "format": "int32",
+            "readOnly": true
+          },
+          "summary": {
+            "type": "string",
+            "description": "要約",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
